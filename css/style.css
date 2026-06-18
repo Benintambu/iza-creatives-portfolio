@@ -1,0 +1,21 @@
+body{margin:0;background:#111;color:#fff;font-family:Arial,sans-serif}
+header{position:fixed;top:0;width:100%;padding:20px;z-index:100;background:rgba(0,0,0,.2)}
+nav{display:flex;justify-content:space-between}
+.desktop-nav{display:flex;gap:20px;list-style:none}
+.desktop-nav a,.mobile-menu a{color:white;text-decoration:none}
+.mobile-menu{display:none;position:fixed;inset:0;background:#111;padding:100px 20px}
+.mobile-menu.open{display:flex;flex-direction:column;gap:20px}
+.hero{height:100vh;position:relative}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.hero-content{position:relative;z-index:2;height:100%;display:flex;align-items:end;justify-content:space-between;padding:40px}
+.hero-thumbs{display:flex;flex-direction:column;gap:10px}
+.hero-thumb{width:90px;height:90px;background-size:cover;cursor:pointer;border:2px solid transparent}
+.hero-thumb.active{border-color:white}
+.section{padding:80px 20px}
+.service-item{padding:20px 0;border-bottom:1px solid #333}
+.testi-section{padding:80px 20px}
+.call-to-action{min-height:100vh;background:url('https://picsum.photos/1600/900') center/cover;position:relative;display:flex;align-items:end}
+.cta-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.call-to-action-content{position:relative;padding:40px;z-index:2}
+.iz-overlay{position:fixed;inset:0;background:#111;display:flex;justify-content:center;align-items:center;z-index:9999}

@@ -1,0 +1,113 @@
+@import "./global.css";
+@import "./variables.css";
+
+.contact {
+    width: 100%;
+    min-height: 100vh;
+    padding-block: 120px 48px;
+}
+
+.contact-header {
+    margin-bottom: 32px;
+}
+
+.contact-header p {
+    font-size: clamp(26px, 6vw, 80px);
+    font-weight: 800;
+}
+
+.contact-info-item {
+    margin-bottom: 16px;
+}
+
+.contact-info-item:last-child {
+    margin-bottom: 32px;
+}
+
+.contact-info-item span {
+    text-transform: capitalize;
+    color: var(--grey-2);
+}
+
+.contact-info-item p {
+    margin-top: 8px;
+    font-size: clamp(19px, 1vw, 24px);
+    font-weight: 500;
+}
+
+.contact-form {
+    display: grid;
+    gap: 8px;
+}
+
+.contact-form input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--black-low) !important;
+    padding-block: 16px;
+    color: var(--white-color);
+}
+
+.contact-form textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--black-low) !important;
+    resize: none;
+    color: var(--white-color);
+    padding-top: 16px;
+    height: 15vh;
+    margin-bottom: 16px;
+}
+
+.contact-form .button {
+    text-align: center;
+}
+
+.socials-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.socials-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--grey-2);
+    color: var(--grey-2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.socials-icons a:hover {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border-color: var(--white-color);
+    transform: scale(1.1);
+}
+
+.socials-icons i {
+    font-size: 18px;
+}
+
+@media (min-width: 1024px) {
+    .contact-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contact-header p {
+        margin-bottom: 40px;
+    }
+
+    .contact-form {
+        width: 50%;
+    }
+
+    body {
+        overflow: hidden;
+    }
+}

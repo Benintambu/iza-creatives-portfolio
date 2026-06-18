@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZA Creatives - Contact</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo/logo1.png">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header class="section">
+        <nav>
+            <a href="./index.html">
+                <img src="./assets//images/logo/logo1.png" alt="Logo IZA Creatives" class="logo">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="./index.html">accueil</a></li>
+                <li><a href="./about.html">à propos</a></li>
+                <li><a href="./gallery.html">galerie</a></li>
+                <li><a href="./contact.html" class="active">contacts</a></li>
+
+                <div class="nav-menu-footer">
+                    <a href="mailto:israeliza@gmail.com" class="nav-footer-link">discutons</a>
+                </div>
+            </ul>
+
+            <a href="mailto:israeliza@gmail.com" class="button">Discutons</a>
+
+            <div class="nav-btn">
+                <div class="nav--btn"></div>
+                <div class="nav--btn"></div>
+            </div>
+
+            <!-- Bouton fermeture -->
+            <div class="close-menu">
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section contact">
+            <div class="contact-header">
+                <p>Parlons de votre <br>prochain projet.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-infos">
+                    <div class="contact-info-item">
+                        <span>email</span>
+                        <p>israeliza@gmail.com</p>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <span>téléphone</span>
+                        <p>+243 830 831 139</p>
+                    </div>
+
+                    <div class="contact-info-item contact-info-socials">
+                        <span>réseaux sociaux</span>
+                        <div class="socials-icons">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Nom complet" id="name">
+                    <input type="email" name="email" placeholder="Email" id="email">
+                    <input type="text" name="object" placeholder="Objet de l'email" id="object">
+                    <textarea name="message" id="message" placeholder="Votre message"></textarea>
+                    <div class="contact-form-button">
+                        <button type="submit" class="button">envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="page-transition"></div>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@latest/bundled/lenis.js"></script>
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+
+</html>

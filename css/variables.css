@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+
+@font-face {
+    font-family: 'Moglan';
+    src: url("../assets/fonts/Moglan_DEMO.ttf");
+}
+
+:root {
+    --white-color: #f5f5f5;
+    --black-color: #111;
+    --black-mid: #161616;
+    --black-low: #1C1C1C;
+    --grey-1: #d9d9d9;
+    --grey-2: #ADADAD;
+    --grey-3: #818181;
+
+    /* Font */
+    --secondary-font: "Moglan";
+
+}

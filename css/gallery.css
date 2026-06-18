@@ -1,0 +1,178 @@
+@import "./global.css";
+@import "./variables.css";
+
+.gallery--header {
+    width: 100%;
+    padding-block: 120px 0;
+}
+
+.gallery--header h1 {
+    font-size: clamp(24px, 4vw, 50px);
+    margin-bottom: 16px;
+}
+
+.gallery--header p {
+    color: var(--grey-2);
+    width: min(550px, 100%);
+    margin-bottom: 40px;
+}
+
+.gallery--header ul {
+    width: 100%;
+    display: flex;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--black-low);
+}
+
+.gallery--header ul li {
+    position: relative;
+    color: var(--grey-3);
+    font-size: clamp(11px, 1vw, 18px);
+}
+
+.gallery--header ul .active {
+    color: var(--white-color);
+}
+
+.gallery--header ul li::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    background-color: var(--white-color);
+    width: 0;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+}
+
+.gallery--header ul .active::before {
+    width: 50%;
+}
+
+.gallery--header ul li:not(:first-child) {
+    cursor: pointer;
+    margin-left: 24px;
+
+}
+
+.gallery-grid {
+
+    columns: 3 320px;
+    column-gap: 20px;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 24px;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, .75),
+            transparent);
+
+    opacity: 0;
+
+    transition: .4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h3 {
+    color: white;
+    margin-bottom: 4px;
+}
+
+.gallery-overlay span {
+    color: rgba(255, 255, 255, .7);
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1000px) {
+
+    .gallery-grid {
+        columns: 2 250px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .gallery-grid {
+        columns: 1;
+    }
+
+}
+
+/* ------ */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 9999;
+
+    transition: .4s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90vh;
+
+    transform: scale(.8);
+
+    transition: .4s ease;
+}
+
+.lightbox.active .lightbox-image {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+
+    line-height: 1;
+}
