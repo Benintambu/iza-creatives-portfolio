@@ -10,6 +10,11 @@
      font-size: clamp(19px, 5vw, 48px);
  }
 
+ .about-top-left h1 span {
+     font-family: var(--secondary-font);
+     font-weight: normal;
+ }
+
  .about-top-right p {
      margin-bottom: 16px;
  }

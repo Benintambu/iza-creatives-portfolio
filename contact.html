@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IZA Creatives - Contact</title>
+    <title>Contactez IZA Creatives | Studio de création visuelle</title>
+    <meta name="description"
+        content="Vous avez un projet visuel ? Contactez IZA Creatives pour discuter de votre photographie, direction artistique ou création visuelle. Nous sommes à votre écoute.">
     <link rel="icon" type="image/x-icon" href="./assets/images/logo/logo1.png">
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/contact.css">
@@ -16,7 +18,7 @@
     <header class="section">
         <nav>
             <a href="./index.html">
-                <img src="./assets//images/logo/logo1.png" alt="Logo IZA Creatives" class="logo">
+                <img src="./assets/images/logo/logo1.png" alt="Logo officiel IZA Creatives" class="logo">
             </a>
 
             <ul class="nav-menu">
@@ -26,7 +28,7 @@
                 <li><a href="./contact.html" class="active">contacts</a></li>
 
                 <div class="nav-menu-footer">
-                    <a href="mailto:israeliza@gmail.com" class="nav-footer-link">discutons</a>
+                    <a href="mailto:israeliza@gmail.com" class="nav-footer-link">Discutons</a>
                 </div>
             </ul>
 
@@ -47,45 +49,53 @@
     <main>
         <section class="section contact">
             <div class="contact-header">
-                <p>Parlons de votre <br>prochain projet.</p>
+                <h1>Parlons de votre <br>prochain projet.</h1>
             </div>
 
             <div class="contact-content">
                 <div class="contact-infos">
                     <div class="contact-info-item">
                         <span>email</span>
-                        <p>israeliza@gmail.com</p>
+                        <p><a href="mailto:israeliza@gmail.com">israeliza@gmail.com</a></p>
                     </div>
 
                     <div class="contact-info-item">
                         <span>téléphone</span>
-                        <p>+243 830 831 139</p>
+                        <p><a href="tel:+243830831139">+243 830 831 139</a></p>
                     </div>
 
                     <div class="contact-info-item contact-info-socials">
                         <span>réseaux sociaux</span>
                         <div class="socials-icons">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                title="Suivez-nous sur Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok">
+                            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
+                                title="Découvrez nos vidéos TikTok">
                                 <i class="fab fa-tiktok"></i>
                             </a>
-                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                            <a href="https://wa.me/243830831139" target="_blank" rel="noopener noreferrer"
+                                title="Discutons sur WhatsApp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                title="Rejoignez-nous sur Facebook">
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <form class="contact-form">
-                    <input type="text" name="name" placeholder="Nom complet" id="name">
-                    <input type="email" name="email" placeholder="Email" id="email">
-                    <input type="text" name="object" placeholder="Objet de l'email" id="object">
-                    <textarea name="message" id="message" placeholder="Votre message"></textarea>
+                <form class="contact-form" action="#" method="POST">
+                    <input type="text" name="name" placeholder="Nom complet" id="name" aria-label="Nom complet"
+                        required>
+                    <input type="email" name="email" placeholder="Email" id="email" aria-label="Adresse email" required>
+                    <input type="text" name="object" placeholder="Objet de l'email" id="object"
+                        aria-label="Objet du message">
+                    <textarea name="message" id="message" placeholder="Votre message" aria-label="Votre message"
+                        required></textarea>
+
                     <div class="contact-form-button">
                         <button type="submit" class="button">envoyer</button>
                     </div>
@@ -99,7 +109,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@latest/bundled/lenis.js"></script>
     <script type="module" src="./js/main.js"></script>
-
 </body>
 
 </html>

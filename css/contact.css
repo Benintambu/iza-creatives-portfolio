@@ -29,10 +29,16 @@
     color: var(--grey-2);
 }
 
-.contact-info-item p {
+.contact-info-item p a {
     margin-top: 8px;
     font-size: clamp(19px, 1vw, 24px);
     font-weight: 500;
+    color: var(--white-color);
+    transition: color .4s ease-in;
+}
+
+.contact-info-item p a:hover {
+    color: var(--grey-2);
 }
 
 .contact-form {
