@@ -520,11 +520,13 @@
     margin-inline: auto;
 }
 
-@media (max-width: 790px) {
+@media (min-width: 790px) {
     .testi-container {
         grid-template-columns: repeat(3, 1fr);
     }
+}
 
+@media (max-width: 800px) {
     .service-image {
         display: none;
     }
