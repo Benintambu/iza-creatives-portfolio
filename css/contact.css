@@ -29,8 +29,11 @@
     color: var(--grey-2);
 }
 
-.contact-info-item p a {
+.contact-info-item p {
     margin-top: 8px;
+}
+
+.contact-info-item p a {
     font-size: clamp(19px, 1vw, 24px);
     font-weight: 500;
     color: var(--white-color);
