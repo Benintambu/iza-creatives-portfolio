@@ -1,3 +1,5 @@
+/* emailjs.init("TON_PUBLIC_KEY");
+ */
 // Initialize Lenis for smooth scrolling
 const lenis = new Lenis({
     duration: 1.2,
@@ -20,6 +22,8 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+gsap.registerPlugin(ScrollTrigger);
 
 const sliderData = [
     { title: "Image 1", img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
@@ -551,32 +555,130 @@ function initializeGalleryLightbox() {
 
 
 function initializeContactForm() {
-    const form = document.querySelector('.contact-form');
+
+    const form = document.querySelector(".contact-form");
 
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", function (e) {
+
         e.preventDefault();
 
-        const name = document.getElementById('name')?.value?.trim() || '';
-        const email = document.getElementById('email')?.value?.trim() || '';
-        const object = document.getElementById('object')?.value?.trim() || '';
-        const message = document.getElementById('message')?.value?.trim() || '';
+        emailjs.sendForm(
+            "SERVICE_ID",
+            "TEMPLATE_ID",
+            form
+        )
+            .then(() => {
 
-        const recipient = 'israeliza@gmail.com';
-        const subject = object ? `Contact depuis le site - ${object}` : 'Contact depuis le site';
-        const body = [
-            `Nom : ${name}`,
-            `Email : ${email}`,
-            `Objet : ${object}`,
-            '',
-            'Message :',
-            message,
-        ].join('\n');
+                alert("Message envoyé avec succès !");
+                form.reset();
 
-        window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        form.reset();
+            })
+            .catch((error) => {
+
+                console.error(error);
+                alert("Une erreur est survenue.");
+
+            });
+
     });
+
+}
+
+function initializeIntro() {
+
+    const intro = document.querySelector(".intro");
+
+    if (!intro) return;
+
+    if (sessionStorage.getItem("introPlayed")) {
+
+        intro.remove();
+
+        animateHeroEntrance();
+
+        return;
+    }
+
+    sessionStorage.setItem("introPlayed", "true");
+
+    const tl = gsap.timeline();
+
+    tl.from(".intro-logo", {
+        scale: .8,
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out"
+    })
+
+        .from(".intro-content h2", {
+            y: 40,
+            opacity: 0,
+            duration: 1
+        }, "-=.6")
+
+        .from(".intro-content p", {
+            y: 20,
+            opacity: 0,
+            duration: 1
+        }, "-=.8")
+
+        .to(".intro", {
+            yPercent: -100,
+            duration: 1.3,
+            ease: "expo.inOut",
+            delay: .5
+        })
+
+        .call(() => {
+
+            intro.remove();
+
+            animateHeroEntrance();
+
+        });
+
+}
+
+function initializePageTransition() {
+
+    const overlay = document.querySelector(".page-transition");
+
+    if (!overlay) return;
+
+    gsap.set(overlay, {
+        yPercent: -100
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("mailto") ||
+            link.target === "_blank"
+        ) return;
+
+        link.addEventListener("click", (e) => {
+
+            e.preventDefault();
+
+            gsap.to(overlay, {
+                yPercent: 0,
+                duration: 1,
+                ease: "expo.inOut",
+                onComplete() {
+                    window.location.href = href;
+                }
+            });
+
+        });
+
+    });
+
 }
 
 function initializeSite() {
@@ -591,7 +693,7 @@ function initializeSite() {
 }
 
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeSlider);
+    document.addEventListener("DOMContentLoaded", initializeHeroSlider);
 } else {
     initializeSite();
 }
