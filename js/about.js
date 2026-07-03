@@ -1,21 +1,30 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Synchronize Lenis with ScrollTrigger for smooth horizontal scrolling
+// =========================
+// Lenis + ScrollTrigger
+// =========================
+
 if (window.lenis) {
-    window.lenis.on('scroll', ScrollTrigger.update);
+    window.lenis.on("scroll", ScrollTrigger.update);
 }
 
 gsap.ticker.lagSmoothing(0);
 
-const contents = gsap.utils.toArray('.story .story-container')
+// =========================
+// Story Horizontal Scroll
+// =========================
 
-gsap.to(contents, {
-    xPercent: -100 * (contents.length - 1),
-    scrollTrigger: {
-        trigger: '.story',
-/*             start: 'top 10%',
- */            pin: true,
-        scrub: true,
-    }
-})
+const contents = gsap.utils.toArray(".story .story-container");
+
+if (contents.length) {
+    gsap.to(contents, {
+        xPercent: -100 * (contents.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".story",
+            pin: true,
+            scrub: true,
+        }
+    });
+}
 
