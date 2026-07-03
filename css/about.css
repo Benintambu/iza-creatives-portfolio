@@ -31,10 +31,10 @@
              rgba(18, 18, 18, 0.8) 30%,
              rgba(18, 18, 18, 0.4) 60%,
              rgba(18, 18, 18, 0) 100%),
-         url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80");
+         url("/assets/images/bg/1.webp");
      background-size: cover;
      background-position: center;
-     border-radius: 30px 30px 0 0;
+     border-radius: 50px 50px 0 0;
      position: relative;
  }
 

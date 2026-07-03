@@ -26,14 +26,14 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger);
 
 const sliderData = [
-    { title: "Image 1", img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 2", img: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 3", img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 4", img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 5", img: 'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 6", img: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 7", img: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
-    { title: "Image 8", img: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=1400&q=80', url: './about.html' },
+    { title: "Image 1", img: '/assets/images/home-gallery-slider/1.webp', url: './about.html' },
+    { title: "Image 2", img: '/assets/images/home-gallery-slider/2.webp', url: './about.html' },
+    { title: "Image 3", img: '/assets/images/home-gallery-slider/3.webp', url: './about.html' },
+    { title: "Image 4", img: '/assets/images/home-gallery-slider/4.webp', url: './about.html' },
+    { title: "Image 5", img: '/assets/images/home-gallery-slider/5.webp', url: './about.html' },
+    { title: "Image 6", img: '/assets/images/home-gallery-slider/6.webp', url: './about.html' },
+    { title: "Image 7", img: '/assets/images/home-gallery-slider/7.webp', url: './about.html' },
+    { title: "Image 8", img: '/assets/images/home-gallery-slider/8.webp', url: './about.html' },
 ];
 
 const config = {
@@ -456,10 +456,10 @@ function initializeHeroSlider() {
     if (!heroBg) return;
 
     const images = [
-        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80"
+        "/assets/images/slider/1.webp",
+        "/assets/images/slider/2.webp",
+        "/assets/images/slider/3.webp",
+        "/assets/images/slider/4.webp"
     ];
 
     const desktopThumbs = document.querySelectorAll(".thumb-item");
@@ -499,6 +499,276 @@ function initializeHeroSlider() {
         }
         updateActiveSlide(currentIndex);
     }, 5000);
+}
+
+const galleryData = [
+    {
+        src: '/assets/images/gallery/1.webp',
+        alt: 'Photographie éditoriale de mode et portrait artistique - IZA Creatives',
+        title: 'Shooting couple',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/2.webp',
+        alt: 'Reportage photo et capture de moments complices lors d\'un mariage',
+        title: 'Shooting couple',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/3.webp',
+        alt: 'Séance photo de couple en extérieur style cinématique spontané',
+        title: 'Shooting couple',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/4.webp',
+        alt: 'Portrait créatif et direction artistique pour séance photo de mode',
+        title: 'Shooting couple',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/5.webp',
+        alt: 'Capture de détails et émotions d\'un événement festif par IZA Creatives',
+        title: 'Conférence',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/6.webp',
+        alt: 'Photographie de célébration et instants précieux de mariage',
+        title: 'Conférence',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/7.webp',
+        alt: 'Portrait studio moderne et épuré axé sur l\'émotion brute',
+        title: 'Conférence',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/8.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/8.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/9.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/10.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/11.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/12.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/13.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/14.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/15.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/16.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/17.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/18.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/19.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/20.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/21.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Mariage',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/22.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/23.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/24.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/25.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/26.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/27.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/28.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/29.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/30.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/31.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/32.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/33.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/34.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/35.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/36.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/37.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/38.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/39.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/40.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+    {
+        src: '/assets/images/gallery/41.webp',
+        alt: 'Création de visuels haut de gamme pour identité de marque',
+        title: 'Nuits des lévites',
+        year: '2025'
+    },
+];
+
+function initializeGallery() {
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (!galleryGrid) return;
+
+    galleryGrid.innerHTML = galleryData.map((item) => `
+        <div class="gallery-item">
+            <img src="${item.src}" alt="${item.alt}">
+            <div class="gallery-overlay">
+                <h3>${item.title}</h3>
+                <span>${item.year}</span>
+            </div>
+        </div>
+    `).join('');
 }
 
 function initializeGalleryLightbox() {
@@ -687,13 +957,14 @@ function initializeSite() {
     initializeMobileMenu();
     initializeNavbarScroll();
     initializeHeroSlider();
+    initializeGallery();
     initializeGalleryLightbox();
     initializeContactForm();
     animate();
 }
 
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeHeroSlider);
+    document.addEventListener("DOMContentLoaded", initializeSite);
 } else {
     initializeSite();
 }

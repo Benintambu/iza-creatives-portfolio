@@ -133,13 +133,13 @@ nav ul li:not(:first-child) {
 }
 
 nav ul li a {
-    color: var(--grey-2);
+    color: var(--white-color);
     transition: .3s ease;
     text-transform: capitalize;
 }
 
 nav ul li a.active {
-    font-weight: 500;
+    font-weight: 800;
     color: var(--white-color);
 }
 
