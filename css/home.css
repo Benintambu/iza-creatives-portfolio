@@ -496,6 +496,7 @@
         flex-direction: column;
         gap: 24px;
         animation: scrollUp 18s linear infinite;
+        will-change: transform;
     }
 
     .testi-column.reverse .testi-track {
@@ -507,27 +508,23 @@
 /* Animation testimonials */
 
 @keyframes scrollUp {
-
-    from {
+    0% {
         transform: translateY(0);
     }
 
-    to {
-        transform: translateY(-50%);
+    100% {
+        transform: translateY(calc(-50% - 12px));
     }
-
 }
 
 @keyframes scrollDown {
-
-    from {
-        transform: translateY(-50%);
+    0% {
+        transform: translateY(calc(-50% - 12px));
     }
 
-    to {
+    100% {
         transform: translateY(0);
     }
-
 }
 
 .testi-column:nth-child(1) .testi-track {
