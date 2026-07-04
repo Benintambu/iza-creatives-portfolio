@@ -62,7 +62,7 @@
 
 .hero-thubnails {
     position: absolute;
-    z-index: 3;
+    z-index: 10;
     right: clamp(1rem, 5vw, 3rem);
     display: grid;
     gap: 8px;
@@ -95,6 +95,10 @@
 .thumb-mobile-item {
     background-size: cover;
     background-position: center;
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
+    display: block;
 
     opacity: .35;
     filter: blur(2px);
@@ -107,17 +111,14 @@
     overflow: hidden;
 }
 
-.thumb-active {
-    opacity: 1;
-    filter: blur(0);
-}
-
+.thumb-active,
 .thumb-mobile-active {
     opacity: 1;
     filter: blur(0);
 }
 
-.hero-thubnails .thumb-active {
+.hero-thubnails .thumb-active,
+.thumbnails-mobile .thumb-mobile-active {
     transform: scale(1.05);
 }
 

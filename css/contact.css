@@ -27,6 +27,7 @@
 .contact-info-item span {
     text-transform: capitalize;
     color: var(--grey-2);
+    font-size: clamp(14px, 1vw, 19px);
 }
 
 .contact-info-item p {
@@ -34,7 +35,7 @@
 }
 
 .contact-info-item p a {
-    font-size: clamp(19px, 1vw, 24px);
+    font-size: clamp(16px, 1vw, 22px);
     font-weight: 500;
     color: var(--white-color);
     transition: color .4s ease-in;
