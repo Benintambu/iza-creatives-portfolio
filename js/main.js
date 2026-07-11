@@ -544,270 +544,415 @@ const galleryData = [
     {
         src: '/assets/images/gallery/1.webp',
         alt: 'Photographie éditoriale de mode et portrait artistique - IZA Creatives',
-        title: 'Shooting couple',
+        folder: 'Shooting couple',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/2.webp',
         alt: 'Reportage photo et capture de moments complices lors d\'un mariage',
-        title: 'Shooting couple',
+        folder: 'Shooting couple',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/3.webp',
         alt: 'Séance photo de couple en extérieur style cinématique spontané',
-        title: 'Shooting couple',
+        folder: 'Shooting couple',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/4.webp',
         alt: 'Portrait créatif et direction artistique pour séance photo de mode',
-        title: 'Shooting couple',
+        folder: 'Shooting couple',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/5.webp',
         alt: 'Capture de détails et émotions d\'un événement festif par IZA Creatives',
-        title: 'Conférence',
+        folder: 'Conférence',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/6.webp',
         alt: 'Photographie de célébration et instants précieux de mariage',
-        title: 'Conférence',
+        folder: 'Conférence',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/7.webp',
         alt: 'Portrait studio moderne et épuré axé sur l\'émotion brute',
-        title: 'Conférence',
+        folder: 'Conférence',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/8.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
-        year: '2025'
-    },
-    {
-        src: '/assets/images/gallery/8.webp',
-        alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/9.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/10.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/11.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/12.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/13.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/14.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/15.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/16.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/17.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/18.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/19.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/20.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/21.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Mariage',
+        folder: 'Mariage',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/22.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/23.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/24.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/25.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/26.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/27.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/28.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/29.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/30.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/31.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/32.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/33.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/34.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/35.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/36.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/37.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/38.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/39.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/40.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
     {
         src: '/assets/images/gallery/41.webp',
         alt: 'Création de visuels haut de gamme pour identité de marque',
-        title: 'Nuits des lévites',
+        folder: 'Nuits des lévites',
         year: '2025'
     },
 ];
 
-function initializeGallery() {
+const galleryFolders = Array.from(galleryData.reduce((groups, item) => {
+    const key = (item.folder || 'Autre').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    if (!groups.has(key)) {
+        groups.set(key, {
+            id: key,
+            name: item.folder,
+            coverImage: item.src,
+            items: []
+        });
+    }
+    groups.get(key).items.push(item);
+    return groups;
+}, new Map()).values());
+
+function renderGalleryGrid(items) {
     const galleryGrid = document.querySelector('.gallery-grid');
+    const toolbar = document.querySelector('.gallery-view-toolbar');
+
     if (!galleryGrid) return;
 
-    galleryGrid.innerHTML = galleryData.map((item) => `
+    const gallerySection = document.querySelector('.gallery');
+    const folderContainer = document.querySelector('.gallery-folder');
+
+    if (gallerySection) {
+        gallerySection.classList.remove('is-hidden');
+    }
+
+    if (folderContainer) {
+        folderContainer.classList.remove('is-active');
+    }
+
+    if (toolbar) {
+        toolbar.innerHTML = '';
+    }
+
+    galleryGrid.innerHTML = items.map((item) => `
         <div class="gallery-item">
-            <img src="${item.src}" alt="${item.alt}">
+            <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
-                <h3>${item.title}</h3>
+                <h3>${item.folder}</h3>
                 <span>${item.year}</span>
             </div>
         </div>
     `).join('');
+
+    requestAnimationFrame(() => {
+        galleryGrid.classList.add('is-ready');
+    });
+
+    initializeGalleryLightbox();
+}
+
+function renderFoldersView() {
+    const folderContainer = document.querySelector('.gallery-folder');
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const toolbar = document.querySelector('.gallery-view-toolbar');
+    const gallerySection = document.querySelector('.gallery');
+
+    if (gallerySection) {
+        gallerySection.classList.add('is-hidden');
+    }
+
+    if (toolbar) {
+        toolbar.innerHTML = '';
+    }
+
+    if (galleryGrid) {
+        galleryGrid.innerHTML = '';
+        galleryGrid.classList.remove('is-ready');
+    }
+
+    if (!folderContainer) return;
+
+    folderContainer.classList.add('is-active');
+    folderContainer.innerHTML = galleryFolders.map((folder) => `
+        <button class="gallery-folder-card" type="button" data-folder-id="${folder.id}">
+            <img src="${folder.coverImage}" alt="${folder.name}" loading="eager" decoding="async">
+            <div class="gallery-folder-info">
+                <h3>${folder.name}</h3>
+                <span>${folder.items.length} image${folder.items.length > 1 ? 's' : ''}</span>
+            </div>
+        </button>
+    `).join('');
+
+    folderContainer.querySelectorAll('.gallery-folder-card').forEach((card) => {
+        card.addEventListener('click', () => {
+            const folderId = card.getAttribute('data-folder-id');
+            const selectedFolder = galleryFolders.find((folder) => folder.id === folderId);
+            if (!selectedFolder) return;
+            renderFolderItems(selectedFolder);
+        });
+    });
+}
+
+function renderFolderItems(folder) {
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const toolbar = document.querySelector('.gallery-view-toolbar');
+    const gallerySection = document.querySelector('.gallery');
+    const folderContainer = document.querySelector('.gallery-folder');
+
+    if (!galleryGrid || !toolbar) return;
+
+    if (gallerySection) {
+        gallerySection.classList.remove('is-hidden');
+    }
+
+    if (folderContainer) {
+        folderContainer.classList.remove('is-active');
+    }
+
+    toolbar.innerHTML = `
+        <button type="button" class="gallery-back">← Retour</button>
+        <span class="gallery-current-folder">${folder.name}</span>
+    `;
+
+    const backButton = toolbar.querySelector('.gallery-back');
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            renderFoldersView();
+        });
+    }
+
+    galleryGrid.innerHTML = folder.items.map((item) => `
+        <div class="gallery-item">
+            <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async">
+            <div class="gallery-overlay">
+                <h3>${item.folder}</h3>
+                <span>${item.year}</span>
+            </div>
+        </div>
+    `).join('');
+
+    requestAnimationFrame(() => {
+        galleryGrid.classList.add('is-ready');
+    });
+
+    initializeGalleryLightbox();
+}
+
+function initializeGalleryCategories() {
+    const buttons = document.querySelectorAll('.gallery-categories li');
+
+    if (!buttons.length) return;
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            buttons.forEach((item) => item.classList.remove('active'));
+            button.classList.add('active');
+
+            if (button.id === 'events') {
+                renderFoldersView();
+            } else {
+                renderGalleryGrid(galleryData);
+            }
+        });
+    });
+}
+
+async function initializeGallery() {
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (!galleryGrid) return;
+
+    initializeGalleryCategories();
+    renderGalleryGrid(galleryData);
 }
 
 function initializeGalleryLightbox() {
@@ -990,21 +1135,23 @@ function initializePageTransition() {
 
 }
 
-function initializeSite() {
+async function initializeSite() {
     initializeHeroThumbnails();
     initializeSlides();
     initializeEventListeners();
     initializeMobileMenu();
     initializeNavbarScroll();
     initializeHeroSlider();
-    initializeGallery();
+    await initializeGallery();
     initializeGalleryLightbox();
     initializeContactForm();
     animate();
 }
 
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeSite);
+    document.addEventListener("DOMContentLoaded", () => {
+        initializeSite();
+    });
 } else {
     initializeSite();
 }
