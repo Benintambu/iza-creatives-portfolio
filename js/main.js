@@ -495,10 +495,10 @@ function initializeHeroSlider() {
     if (!heroBg) return;
 
     const images = [
-        "/assets/images/slider/1.webp",
-        "/assets/images/slider/2.webp",
-        "/assets/images/slider/3.webp",
-        "/assets/images/slider/4.webp"
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804780/1_nf4qyi.webp",
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804780/2_ddupan.webp",
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804785/4_koxchn.webp",
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804785/4_koxchn.webp"
     ];
 
     const desktopThumbs = document.querySelectorAll(".thumb-item");
