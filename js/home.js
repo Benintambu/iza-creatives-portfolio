@@ -20,13 +20,22 @@ gsap.to(contents, {
 //
 const serviceItems = document.querySelectorAll(".home-services-item");
 
-serviceItems.forEach((item) => {
+const updateServiceImagePosition = (image, item, event) => {
+    const rect = item.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
+    image.style.left = `${x + 40}px`;
+    image.style.top = `${y}px`;
+};
+
+serviceItems.forEach((item) => {
     const image = item.querySelector(".service-image");
 
     if (!image) return;
 
-    item.addEventListener("mouseenter", () => {
+    item.addEventListener("mouseenter", (e) => {
+        updateServiceImagePosition(image, item, e);
         image.style.opacity = "1";
         image.style.transform = "translate(-50%, -50%) scale(1)";
     });
@@ -37,14 +46,6 @@ serviceItems.forEach((item) => {
     });
 
     item.addEventListener("mousemove", (e) => {
-
-        const rect = item.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        image.style.left = `${x + 40}px`;
-        image.style.top = `${y}px`;
+        updateServiceImagePosition(image, item, e);
     });
-
 });
