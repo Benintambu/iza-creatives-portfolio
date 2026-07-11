@@ -27,6 +27,7 @@
 .gallery--header ul li {
     position: relative;
     color: var(--grey-3);
+    cursor: pointer;
     font-size: clamp(11px, 1vw, 18px);
 }
 
@@ -51,9 +52,7 @@
 }
 
 .gallery--header ul li:not(:first-child) {
-    cursor: pointer;
     margin-left: 24px;
-
 }
 
 .gallery-grid {
