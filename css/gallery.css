@@ -28,7 +28,7 @@
     position: relative;
     color: var(--grey-3);
     cursor: pointer;
-    font-size: clamp(11px, 1vw, 18px);
+    font-size: clamp(14px, 1vw, 18px);
 }
 
 .gallery--header ul .active {
@@ -52,7 +52,7 @@
 }
 
 .gallery--header ul li:not(:first-child) {
-    margin-left: 24px;
+    margin-left: 40px;
 }
 
 .gallery-grid {
