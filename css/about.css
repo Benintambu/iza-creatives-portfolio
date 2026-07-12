@@ -31,7 +31,7 @@
              rgba(18, 18, 18, 0.8) 30%,
              rgba(18, 18, 18, 0.4) 60%,
              rgba(18, 18, 18, 0) 100%),
-         url("/assets/images/bg/1.webp");
+         url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883755/1_txvujd.webp");
      background-size: cover;
      background-position: center;
      border-radius: 50px 50px 0 0;
