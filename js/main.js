@@ -26,14 +26,14 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger);
 
 const sliderData = [
-    { title: "Image 1", img: '/assets/images/home-gallery-slider/1.webp', url: './about.html' },
-    { title: "Image 2", img: '/assets/images/home-gallery-slider/2.webp', url: './about.html' },
-    { title: "Image 3", img: '/assets/images/home-gallery-slider/3.webp', url: './about.html' },
-    { title: "Image 4", img: '/assets/images/home-gallery-slider/4.webp', url: './about.html' },
-    { title: "Image 5", img: '/assets/images/home-gallery-slider/5.webp', url: './about.html' },
-    { title: "Image 6", img: '/assets/images/home-gallery-slider/6.webp', url: './about.html' },
-    { title: "Image 7", img: '/assets/images/home-gallery-slider/7.webp', url: './about.html' },
-    { title: "Image 8", img: '/assets/images/home-gallery-slider/8.webp', url: './about.html' },
+    { title: "Image 1", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883286/1_p0dzpe.webp', url: './about.html' },
+    { title: "Image 2", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883283/2_jiadqp.webp', url: './about.html' },
+    { title: "Image 3", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883290/3_ogvemc.webp', url: './about.html' },
+    { title: "Image 4", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883284/4_gfxz9u.webp', url: './about.html' },
+    { title: "Image 5", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883287/5_puvgqm.webp', url: './about.html' },
+    { title: "Image 6", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883286/6_czwmyw.webp', url: './about.html' },
+    { title: "Image 7", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883288/7_n5goe0.webp', url: './about.html' },
+    { title: "Image 8", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883289/8_f2b2qy.webp', url: './about.html' },
 ];
 
 const config = {
@@ -123,6 +123,11 @@ function setHeroBackground(imageUrl, activeThumb) {
     heroBg.style.backgroundImage = `url("${imageUrl}")`;
 
     document.querySelectorAll('.thumb-item, .thumb-mobile-item').forEach((thumb) => {
+        const thumbImage = thumb.dataset.image;
+        if (thumbImage) {
+            thumb.style.backgroundImage = `url("${thumbImage}")`;
+        }
+
         const isDesktopThumb = thumb.classList.contains('thumb-item');
         thumb.classList.toggle('thumb-active', isDesktopThumb && thumb === activeThumb);
         thumb.classList.toggle('thumb-mobile-active', !isDesktopThumb && thumb === activeThumb);
@@ -495,10 +500,10 @@ function initializeHeroSlider() {
     if (!heroBg) return;
 
     const images = [
-        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804780/1_nf4qyi.webp",
-        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804780/2_ddupan.webp",
-        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804785/4_koxchn.webp",
-        "https://res.cloudinary.com/dgfskm9bz/image/upload/v1783804785/4_koxchn.webp"
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804780/1_nf4qyi.webp",
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804780/2_ddupan.webp",
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804780/3_xjqagb.webp",
+        "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804785/4_koxchn.webp"
     ];
 
     const desktopThumbs = document.querySelectorAll(".thumb-item");
