@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iza Creatives - Admin | Connexion</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <!-- Filled Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <!-- Brand Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+
+<body>
+
+    <!--  <h2>Connexion</h2>
+
+    <form id="loginForm">
+
+        <input type="email" id="email" placeholder="Email" required>
+
+        <input type="password" id="password" placeholder="Mot de passe" required>
+
+        <button type="submit">
+            Se connecter
+        </button>
+
+    </form>
+ -->
+    <section class="login-container">
+        <div class="login-left">
+            <img src="/assets/images/logo/logo1.png" alt="Logo IZA Creatives" class="login-logo">
+
+            <h1>Espace Admin</h1>
+            <p>Entrez vos identifiants pour vous connecter</p>
+
+            <form id="loginForm">
+                <div class="input-container">
+                    <input type="email" id="email" placeholder="Email" required autofocus>
+                    <i class="bx bx-envelope main-icon"></i>
+                </div>
+
+                <div class="input-container">
+                    <input type="password" id="password" placeholder="Mot de passe" required>
+                    <i class="bx bx-lock-keyhole main-icon"></i>
+                    <i class="bx bx-eye-slash password-toggle" role="button" tabindex="0"
+                        aria-label="Afficher ou masquer le mot de passe"></i>
+                </div>
+
+                <button type="submit">
+                    Se connecter
+                </button>
+                <a href="./forgot-password.html" class="forgot-pass">Mot de passe oublié ?</a>
+            </form>
+        </div>
+
+        <div class="login-right"></div>
+    </section>
+
+
+    <script type="module" src="js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iza Creatives - Admin | Galerie</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/photo.css">
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <!-- Filled Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <!-- Brand Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ADD PHOTO MODAL -->
+    <div class="add-photo-container" id="add-photo-container">
+        <div class="add-photo-modal edit-category-modal">
+            <span>Ajouter une photo</span>
+            <form id="uploadForm">
+                <label for="input-photo" class="input-photo" id="photoLabel">
+
+                    <div class="input-photo-content">
+
+                        <i class="bx bx-arrow-in-up-square-half"></i>
+
+                        <div class="input-photo-text">
+                            <span>Choisissez un fichier ou faites-le glisser-déposer ici.</span>
+                            <p>JPG, PNG ou WEBP</p>
+                        </div>
+
+                    </div>
+
+                </label>
+
+                <input id="input-photo" type="file" accept="image/*" required>
+                <label class="alt-input">
+                    <span>Texte alternatif</span>
+                    <input type="text" id="alt" placeholder="ex: mariage de sam & darlène" required>
+                </label>
+
+                <div class="input-bottom">
+                    <div class="custom-select">
+                        <span>Catgéorie</span>
+                        <select id="category" hidden></select>
+
+                        <button type="button" id="categoryTrigger" class="select-trigger">
+
+                            <span>Sélectionner une catégorie</span>
+
+                            <i class="bx bx-chevron-down"></i>
+
+                        </button>
+
+                        <div id="categoryDropdown" class="select-dropdown">
+
+                            <!-- Rempli par JS -->
+
+                        </div>
+
+                    </div>
+
+                    <label>
+                        <span>Année</span>
+                        <input type="number" id="year" value="2026">
+                    </label>
+                </div>
+
+                <div class="edit-modal-btn add-photo-btn">
+                    <button class="cancel-add-photo">Annuler</button>
+                    <button type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EDIT PHOTO MODAL -->
+    <div class="add-photo-container" id="edit-photo-container">
+
+        <div class="add-photo-modal edit-category-modal">
+
+            <span>Modifier la photo</span>
+
+            <form id="editPhotoForm">
+
+                <label for="editImage" class="input-photo" id="editPhotoLabel">
+
+                    <div class="input-photo-content">
+
+                        <i class="bx bx-image"></i>
+
+                        <div class="input-photo-text">
+
+                            <span>
+                                Cliquez pour remplacer l'image
+                            </span>
+
+                            <p>
+                                JPG, PNG ou WEBP
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+                <input id="editImage" type="file" accept="image/*">
+
+
+                <label class="alt-input">
+
+                    <span>Texte alternatif</span>
+
+                    <input type="text" id="editAlt" placeholder="ex: mariage de sam & darlène" required>
+
+                </label>
+
+
+                <div class="input-bottom">
+
+                    <div class="custom-select">
+
+                        <span>Catégorie</span>
+
+                        <select id="editCategory" hidden></select>
+
+                        <button type="button" id="editCategoryTrigger" class="select-trigger">
+
+                            <span>
+                                Sélectionner une catégorie
+                            </span>
+
+                            <i class="bx bx-chevron-down"></i>
+
+                        </button>
+
+                        <div id="editCategoryDropdown" class="select-dropdown">
+                            <!-- Rempli par JS -->
+                        </div>
+
+                    </div>
+
+
+                    <label>
+
+                        <span>Année</span>
+
+                        <input type="number" id="editYear">
+
+                    </label>
+
+                </div>
+
+
+                <!-- ID caché de la photo -->
+                <input type="hidden" id="editId">
+
+
+                <div class="edit-modal-btn add-photo-btn">
+
+                    <button type="button" id="cancel-edit-photo">
+                        Annuler
+                    </button>
+
+                    <button type="submit">
+                        Modifier
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- DELETE PHOTO -->
+    <div class="delete-modal-container" id="delete-photo">
+
+        <div class="delete-modal">
+
+            <i class="bx bx-alert-triangle"></i>
+
+            <p>Suppression de la photo</p>
+
+            <div class="delete-modal-btn edit-modal-btn">
+
+                <button type="button" id="cancel-delete-photo">
+                    Annuler
+                </button>
+
+                <button type="button" id="confirm-delete-photo">
+                    Supprimer
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <header class="section">
+        <div class="header-left">
+            <h1>IZA - Admin</h1>
+            <h2>Galerie</h2>
+        </div>
+
+        <div class="header-right">
+            <i class="bx bx-plus new-photo"></i>
+        </div>
+    </header>
+
+    <main>
+
+    </main>
+
+    <nav class="admin-nav">
+        <ul>
+            <li>
+                <a href="index" class="nav-menu">
+                    <i class="bx bx-home-alt-3 "></i> </a>
+            </li>
+
+            <li>
+                <a href="photos" class="nav-menu">
+                    <i class="bx bx-image active"></i>
+                </a>
+            </li>
+
+            <li>
+                <button id="logout" class="btn btn-danger nav-menu" type="button">
+                    <i class="bx bx-arrow-in-left-square-half"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="gallery-page section">
+
+            <div class="gallery-toolbar">
+
+                <div class="gallery-search search-box">
+                    <input type="search" id="photoSearch" placeholder="Rechercher une photo...">
+                    <i class="bx bx-search-big"></i>
+                </div>
+
+                <div class="gallery-actions">
+
+                    <div class="gallery-filter-dropdown">
+
+                        <button type="button" id="filterBtn" class="filter-trigger">
+
+                            <span id="currentFilter">
+                                Toutes les catégories
+                            </span>
+
+                            <i class="bx bx-chevron-down"></i>
+
+                        </button>
+
+                        <div id="galleryFilters" class="filter-dropdown">
+                            <!-- Rempli par JS -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="photosGrid" class="gallery-grid">
+
+                <!-- Généré par JS -->
+
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/gallery.js"></script>
+    <script type="module" src="js/logout.js"></script>
+
+</body>
+
+</html>

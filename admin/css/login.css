@@ -1,0 +1,156 @@
+@import url("admin.css");
+
+.login-logo {
+    width: 70px;
+    margin-bottom: 40px;
+}
+
+body {
+    overflow: hidden !important;
+}
+
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.login-right {
+    display: none;
+}
+
+.login-left {
+    padding-block: 30px 50px;
+    padding-inline: 20px;
+}
+
+.login-left h1 {
+    font-size: clamp(20px, 4vw, 40px);
+    color: var(--white-color);
+    margin-bottom: 8px;
+}
+
+.login-left p {
+    color: var(--grey-2);
+    margin-bottom: 24px;
+    font-size: clamp(15px, 1vw, 19px);
+}
+
+.login-left form {
+    display: grid;
+    gap: 8px;
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container input {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid var(--black-low);
+    background-color: transparent;
+    color: var(--white-color);
+    padding-inline: 48px;
+}
+
+.input-container input:focus {
+    border-color: var(--white-color);
+}
+
+.input-container i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--grey-3);
+    font-size: 18px;
+}
+
+.main-icon {
+    left: 20px;
+}
+
+.input-container i.password-toggle {
+    right: 20px;
+    left: auto;
+    cursor: pointer;
+}
+
+.input-container i.password-toggle:hover {
+    color: var(--white-color);
+}
+
+.login-left form button {
+    height: 45px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s ease;
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+.login-left form button:hover {
+    background-color: transparent;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+}
+
+.forgot-pass {
+    text-align: right;
+    font-size: clamp(14px, 1vw, 19px);
+    color: var(--grey-2);
+    transition: .3s ease;
+}
+
+.forgot-pass:hover {
+    color: var(--white-color);
+}
+
+.login-reset-password {
+    background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883289/8_f2b2qy.webp") !important;
+}
+
+.login-forgot-password {
+    background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783891829/17_u22ick.webp") !important;
+}
+
+@media screen and (min-width: 768px) {
+    .login-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .login-right {
+        display: block;
+        width: 60%;
+        min-height: 100vh;
+        background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883288/9_t8pv1f.webp");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .login-left {
+        width: 40%;
+        padding-inline: 40px;
+    }
+
+    .login-logo {
+        width: 120px;
+        margin-bottom: 90px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .login-left {
+        width: 50%;
+    }
+
+    .login-right {
+        width: 50%;
+    }
+}

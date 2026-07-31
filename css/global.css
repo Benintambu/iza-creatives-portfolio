@@ -7,8 +7,9 @@
     text-decoration: none;
     list-style: none;
     outline: none;
-    font-family: "Mona Sans", serif;
-    font-family: "Inter", serif;
+    /*     font-family: "Mona Sans", serif;
+ */
+    font-family: "Inter", sans-serif;
 }
 
 
@@ -136,6 +137,7 @@ nav ul li a {
     color: var(--white-color);
     transition: .3s ease;
     text-transform: capitalize;
+    font-size: 15px;
 }
 
 nav ul li a.active {
