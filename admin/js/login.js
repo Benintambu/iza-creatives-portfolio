@@ -25,7 +25,7 @@ form.addEventListener("submit", async (e) => {
 
     }
 
-    window.location.href = "./dashboard.html";
+    window.location.href = "/admin/dashboard.html";
 
 });
 

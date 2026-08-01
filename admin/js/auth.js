@@ -6,6 +6,6 @@ const { data, error } = await supabase.auth.getSession();
 
 
 if (!data.session) {
-    window.location.href = "./login.html";
+    window.location.href = "/admin//index.html";
 } else {
 }
