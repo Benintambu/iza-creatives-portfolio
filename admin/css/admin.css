@@ -760,6 +760,24 @@ nav ul li .nav-menu i:hover {
     margin-top: 40px !important;
 }
 
+/* Warning Delete Category */
+
+.delete-category-warning {
+    text-align: center;
+}
+
+.delete-category-warning p {
+    margin-top: 8px;
+    font-size: clamp(12px, 1vw, 16px);
+    color: var(--grey-3);
+    font-weight: normal;
+    text-align: center;
+}
+
+.delete-category-warning button {
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     nav ul li a i {
         font-size: 16px;

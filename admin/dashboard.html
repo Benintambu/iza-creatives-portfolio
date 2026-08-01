@@ -291,8 +291,8 @@
             <p>Suppression de la catégorie</p>
 
             <div class="delete-modal-btn edit-modal-btn">
-                <button>Annuler</button>
-                <button>Supprimer</button>
+                <button type="button" id="cancel-delete-category">Annuler</button>
+                <button type="button" id="confirm-delete-category">Supprimer</button>
             </div>
         </div>
     </div>
@@ -308,6 +308,17 @@
                 <button>Annuler</button>
                 <button>Supprimer</button>
             </div>
+        </div>
+    </div>
+
+    <!-- WARNING DELETE CATEGORY -->
+    <div class="delete-modal-container admin-modal-overlay" id="warning-delete-category">
+        <div class="delete-modal delete-category-warning">
+            <i class="bx bx-alert-triangle"></i>
+            <span>Catégorie non vide</span>
+            <p>Veuillez supprimer les photos associées à cette catégorie avant de la supprimer.</p>
+
+            <button class="button" id="close-warning-delete-category">Fermer</button>
         </div>
     </div>
 

@@ -1,6 +1,11 @@
 import { supabase } from "../../js/supabase.js";
 
 let allCategories = [];
+let categoryToDeleteId = null;
+
+function getCategoryPhotoCount(category) {
+    return Number(category?.photos?.[0]?.count ?? 0);
+}
 
 export async function getCategories() {
 
@@ -154,6 +159,26 @@ function attachCategoryEvents() {
 
     });
 
+    document.querySelectorAll(".delete-category").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const categoryId = button.dataset.id;
+            const category = allCategories.find(item => item.id === categoryId);
+
+            categoryToDeleteId = categoryId;
+
+            if (!category || getCategoryPhotoCount(category) > 0) {
+                document.getElementById("warning-delete-category")?.classList.add("visible");
+                return;
+            }
+
+            document.getElementById("delete-category")?.classList.add("visible");
+
+        });
+
+    });
+
 }
 
 export function initCategorySearch() {
@@ -211,6 +236,79 @@ export async function updateCategory(id, name) {
     }
 
     return true;
+}
+
+export async function deleteCategory(id) {
+
+    const { error } = await supabase
+        .from("categories")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+        alert(error.message);
+        return false;
+    }
+
+    return true;
+}
+
+export function initCategoryDeletion() {
+    const deleteModal = document.getElementById("delete-category");
+    const warningModal = document.getElementById("warning-delete-category");
+    const cancelDeleteButton = document.getElementById("cancel-delete-category");
+    const confirmDeleteButton = document.getElementById("confirm-delete-category");
+    const closeWarningButton = document.getElementById("close-warning-delete-category");
+
+    if (!deleteModal || !warningModal) return;
+
+    const closeDeleteModal = () => {
+        deleteModal.classList.remove("visible");
+        categoryToDeleteId = null;
+    };
+
+    const closeWarningModal = () => {
+        warningModal.classList.remove("visible");
+    };
+
+    cancelDeleteButton?.addEventListener("click", closeDeleteModal);
+    closeWarningButton?.addEventListener("click", closeWarningModal);
+
+    [deleteModal, warningModal].forEach(modal => {
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                if (modal === deleteModal) {
+                    closeDeleteModal();
+                } else {
+                    closeWarningModal();
+                }
+            }
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            if (deleteModal.classList.contains("visible")) {
+                closeDeleteModal();
+            }
+
+            if (warningModal.classList.contains("visible")) {
+                closeWarningModal();
+            }
+        }
+    });
+
+    confirmDeleteButton?.addEventListener("click", async () => {
+        if (!categoryToDeleteId) return;
+
+        const ok = await deleteCategory(categoryToDeleteId);
+
+        if (!ok) return;
+
+        closeDeleteModal();
+        await loadCategoriesList();
+        await loadCategoriesSelect();
+    });
 }
 
 export async function loadGalleryFilters() {

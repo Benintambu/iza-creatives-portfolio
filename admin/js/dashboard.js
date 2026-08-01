@@ -7,7 +7,8 @@ import {
     updateCategory,
     initCategorySearch,
     getCategories,
-    loadGalleryFilters
+    loadGalleryFilters,
+    initCategoryDeletion
 } from "./categories.js";
 
 import { uploadToCloudinary } from "./cloudinary.js";
@@ -27,6 +28,7 @@ import { setupModal } from "./modal.js";
 
 let photos = await loadPhotos();
 initCategorySearch();
+initCategoryDeletion();
 
 const uploadForm = document.getElementById("uploadForm");
 
