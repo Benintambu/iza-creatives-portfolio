@@ -17,6 +17,6 @@ if (logoutBtn) {
             .forEach((key) => localStorage.removeItem(key));
 
         sessionStorage.clear();
-        window.location.assign("/admin/login.html");
+        window.location.assign("/admin/index.html");
     });
 }

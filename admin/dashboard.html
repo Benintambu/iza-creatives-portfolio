@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iza Creatives - Admin | Tableau de bord</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <!-- Filled Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <!-- Brand Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--  <header class="topbar">
+
+        <div>
+            <h1>IZA Creatives</h1>
+            <p>Tableau de bord</p>
+        </div>
+
+        <button id="logout" class="btn btn-danger">
+            Déconnexion
+        </button>
+
+    </header>
+
+
+    <main class="dashboard">
+
+        <section class="left-column">
+
+            <div class="card">
+
+                <h2>Ajouter une photo</h2>
+
+                <form id="uploadForm">
+
+                    <label>
+                        Image
+                        <input type="file" id="photo" accept="image/*" required>
+                    </label>
+
+                    <div class="preview">
+
+                        <img id="previewImage">
+
+                    </div>
+
+                    <label>
+                        Texte alternatif
+                        <input type="text" id="alt" required>
+                    </label>
+
+                    <label>
+                        Catégorie
+                        <select id="category"></select>
+                    </label>
+
+                    <label>
+                        Année
+                        <input type="number" id="year" value="2026">
+                    </label>
+
+                    <button class="btn btn-primary" type="submit">
+                        Ajouter
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <section class="right-column">
+
+            <div class="card">
+
+                <h2>Catégories</h2>
+
+                <form id="categoryForm">
+
+                    <input type="text" id="categoryName" placeholder="Nouvelle catégorie" required>
+
+                    <button class="btn btn-primary">
+                        Ajouter
+                    </button>
+
+                </form>
+
+                <div id="categoriesList"></div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="photos-header">
+
+                    <h2>Photos</h2>
+
+                    <span id="photoCount"></span>
+
+                </div>
+
+                <div id="photosGrid"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+ 
+
+    <div id="editModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>Modifier la photo</h2>
+
+            <form id="editPhotoForm">
+
+                <input type="hidden" id="editId">
+
+                <label>
+
+                    Texte alternatif
+
+                    <input type="text" id="editAlt" required>
+
+                </label>
+
+                <label>
+
+                    Catégorie
+
+                    <select id="editCategory"></select>
+
+                </label>
+
+                <label>
+
+                    Année
+
+                    <input type="number" id="editYear">
+
+                </label>
+
+                <label>
+
+                    Nouvelle image
+
+                    <input type="file" id="editImage" accept="image/*">
+
+                </label>
+
+                <div class="modal-actions">
+
+                    <button class="btn btn-primary" type="submit">
+                        Enregistrer
+                    </button>
+
+                    <button class="btn btn-secondary" type="button" id="closeModal">
+                        Annuler
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div> -->
+
+    <!-- TOAST NOTIFICATIONS -->
+
+    <!-- ADD PHOTO MODAL -->
+    <div class="add-photo-container" id="add-photo-container">
+        <div class="add-photo-modal edit-category-modal">
+            <span>Ajouter une photo</span>
+            <form id="uploadForm">
+                <label for="input-photo" class="input-photo" id="photoLabel">
+
+                    <div class="input-photo-content">
+
+                        <i class="bx bx-arrow-in-up-square-half"></i>
+
+                        <div class="input-photo-text">
+                            <span>Choisissez un fichier ou faites-le glisser-déposer ici.</span>
+                            <p>JPG, PNG ou WEBP</p>
+                        </div>
+
+                    </div>
+
+                </label>
+
+                <input id="input-photo" type="file" accept="image/*" required>
+                <label class="alt-input">
+                    <span>Texte alternatif</span>
+                    <input type="text" id="alt" placeholder="ex: mariage de sam & darlène" required>
+                </label>
+
+                <div class="input-bottom">
+                    <div class="custom-select">
+                        <span>Catgéorie</span>
+                        <select id="category" hidden></select>
+
+                        <button type="button" id="categoryTrigger" class="select-trigger">
+
+                            <span>Sélectionner une catégorie</span>
+
+                            <i class="bx bx-chevron-down"></i>
+
+                        </button>
+
+                        <div id="categoryDropdown" class="select-dropdown">
+
+                            <!-- Rempli par JS -->
+
+                        </div>
+
+                    </div>
+
+                    <label>
+                        <span>Année</span>
+                        <input type="number" id="year" value="2026">
+                    </label>
+                </div>
+
+                <div class="edit-modal-btn add-photo-btn">
+                    <button class="cancel-add-photo">Annuler</button>
+                    <button type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ADD CATEGORY MODAL -->
+    <div class="edit-category-container" id="add-category-modal">
+        <div class="edit-category-modal add-category-modal-content">
+            <span>Ajouter une catégorie</span>
+            <form id="categoryForm">
+                <input type="text" id="add-category-name" placeholder="Nouvelle catégorie" required>
+                <div class="edit-modal-btn">
+                    <button class="cancel-create">Annuler</button>
+                    <button type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- EDIT MODAL -->
+    <div class="edit-category-container" id="edit-category-modal">
+        <div class="edit-category-modal">
+            <span>Nouveau nom de la catégorie</span>
+            <form id="editCategoryForm">
+
+                <input type="hidden" id="edit-category-id">
+
+                <input type="text" id="new-category-name" value="">
+
+                <div class="edit-modal-btn">
+
+                    <button type="button" class="cancel-edit-category">
+                        Annuler
+                    </button>
+
+                    <button type="submit">
+                        Modifier
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- DELETE CATEGORY -->
+    <div class="delete-modal-container" id="delete-category">
+        <div class="delete-modal">
+            <i class="bx bx-alert-triangle"></i>
+            <p>Suppression de la catégorie</p>
+
+            <div class="delete-modal-btn edit-modal-btn">
+                <button>Annuler</button>
+                <button>Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DELETE PHOTO -->
+    <div class="delete-modal-container" id="delete-photo">
+        <div class="delete-modal">
+            <i class="bx bx-alert-triangle"></i>
+            <p>Suppression de la photo</p>
+
+            <div class="delete-modal-btn edit-modal-btn">
+                <button>Annuler</button>
+                <button>Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="section">
+        <h1>IZA - Admin</h1>
+        <h2>Tabelau de bord</h2>
+    </header>
+
+    <main>
+        <section class="section dashboard-container">
+            <div class="dashboard-item dash--1">
+                <div class="dash--overlay"></div>
+
+                <div class="dash-1-top top-element">
+                    <h3>Photos</h3>
+                    <p class="total-photo">0</p>
+                </div>
+
+                <div class="dash-1-bottom top-element">
+                    <div class="button-container">
+                        <a href="/admin/photos" class="button">Voir tout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-item dash--2">
+                <div class="dash-2-top">
+                    <h4>Dernières photos ajoutées</h4>
+                    <i class="bx bx-plus new-photo"></i>
+                </div>
+
+                <div id="last-uploaded">
+                    <!-- <div class="last-img img--1">
+                        <img src="https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883755/4_zrpuhs.webp" alt="">
+                    </div>
+                    <div class="last-img img--2">
+                        <img src="https://res.cloudinary.com/dgfskm9bz/image/upload/v1783885101/6_uuy6dn.webp" alt="">
+                    </div>
+                    <div class="last-img img--3">
+                        <img src="https://res.cloudinary.com/dgfskm9bz/image/upload/v1783885095/3_dt7uh0.webp" alt="">
+                    </div>
+                    <div class="last-img img--4">
+                        <img src="https://res.cloudinary.com/dgfskm9bz/image/upload/v1783885097/2_zah3ym.webp" alt="">
+                    </div>
+                    <div class="last-img img--5">
+                        <img src="https://res.cloudinary.com/dgfskm9bz/image/upload/v1783885069/1_hbvwdw.webp" alt="">
+                    </div> -->
+                </div>
+            </div>
+            <div class="dashboard-item dash--3">
+                <div class="dash-3-top">
+                    <div class="dash-3-top-left">
+                        <h5>catégories</h5>
+                        <p>Total: <span id="total-categories"></span></p>
+                    </div>
+
+                    <div class="dash-3-top-right">
+                        <i class="bx bx-plus new-category"></i>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <input type="search" id="categoryName" placeholder="Rechercher une catégorie">
+                    <i class="bx bx-search-big"></i>
+                </div>
+
+                <div class="category-container" id="categoriesList">
+                    <!-- Filled by javaScript -->
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+
+    <nav class="admin-nav">
+        <ul>
+            <li>
+                <a href="/admin/dashboard" class="nav-menu">
+                    <i class="bx bx-home-alt-3 active"></i> </a>
+            </li>
+
+            <li>
+                <a href="/admin/photos" class="nav-menu">
+                    <i class="bx bx-image"></i>
+                </a>
+            </li>
+
+            <li>
+                <button id="logout" class="btn btn-danger nav-menu" type="button">
+                    <i class="bx bx-arrow-in-left-square-half"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/logout.js"></script>
+
+</body>
+
+</html>
