@@ -195,7 +195,7 @@ nav ul li .nav-menu i:hover {
 }
 
 .dash-1-top p {
-    font-size: clamp(24px, 5vw, 70px);
+    font-size: clamp(30px, 10vw, 70px);
     font-weight: 600;
 }
 
@@ -304,18 +304,18 @@ nav ul li .nav-menu i:hover {
 
 .search-box input {
     width: 100%;
-    height: 50px;
+    height: 45px;
     border-radius: 30px;
     border: none;
     padding-inline: 40px;
     background-color: var(--black-color);
-    font-size: clamp(12px, 1vw, 19px);
+    font-size: clamp(12px, .8vw, 19px);
     color: var(--white-color);
 }
 
 .search-box i {
     position: absolute;
-    top: 16px;
+    top: 13px;
     left: 16px;
     font-size: 19px;
     color: var(--grey-3);
@@ -411,21 +411,38 @@ nav ul li .nav-menu i:hover {
 
 /* MODAL EDIT CATEGORY */
 
-.edit-category-container,
-.delete-modal-container,
-.add-photo-container {
-    position: absolute;
-    z-index: 1000;
+.admin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
     width: 100%;
     min-height: 100vh;
-    height: 100%;
     background-color: rgba(0, 0, 0, .7);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 24px;
     display: none;
     transition: .3s ease-in-out;
+    overflow-y: auto;
+}
+
+.edit-category-container,
+.delete-modal-container,
+.add-photo-container {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    display: none;
+    transition: .3s ease-in-out;
+    overflow-y: auto;
 }
 
 .edit-category-modal {
@@ -523,6 +540,29 @@ nav ul li .nav-menu i:hover {
 
 .add-photo-modal {
     width: min(600px, 100%);
+}
+
+@media (max-width: 800px) {
+
+    .admin-modal-overlay,
+    .edit-category-container,
+    .delete-modal-container,
+    .add-photo-container {
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .admin-modal-overlay .edit-category-modal,
+    .admin-modal-overlay .delete-modal,
+    .admin-modal-overlay .add-photo-modal,
+    .edit-category-container .edit-category-modal,
+    .delete-modal-container .delete-modal,
+    .add-photo-container .add-photo-modal {
+        width: min(100%, 460px);
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+        margin-block: 8px;
+    }
 }
 
 #input-photo {
