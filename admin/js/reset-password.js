@@ -1,4 +1,6 @@
 import { supabase } from "../../js/supabase.js";
+import { initializePasswordToggle } from "./login.js";
+
 
 const form = document.getElementById("newPasswordForm");
 
@@ -27,3 +29,5 @@ form.addEventListener("submit", async (e) => {
     }
 
 });
+
+initializePasswordToggle("password", ".password-toggle");

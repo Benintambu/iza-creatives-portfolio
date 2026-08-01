@@ -2,44 +2,54 @@ import { supabase } from "../../js/supabase.js";
 
 const form = document.getElementById("loginForm");
 
-form.addEventListener("submit", async (e) => {
+if (form) {
+    form.addEventListener("submit", async (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const email = document.getElementById("email").value;
+        const email = document.getElementById("email").value;
 
-    const password = document.getElementById("password").value;
+        const password = document.getElementById("password").value;
 
-    const { error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
 
-        email,
-        password
+            email,
+            password
+
+        });
+
+        if (error) {
+
+            alert(error.message);
+
+            return;
+
+        }
+
+        window.location.href = "/admin/dashboard.html";
 
     });
+}
 
-    if (error) {
+export function initializePasswordToggle(password, passwordToogle) {
+    const passwordInput = document.getElementById(password);
+    const passwordToggle = document.querySelector(passwordToogle);
 
-        alert(error.message);
+    if (!passwordInput || !passwordToggle || passwordToggle.dataset.toggleInitialized === "true") return;
 
-        return;
-
-    }
-
-    window.location.href = "/admin/dashboard.html";
-
-});
-
-function initializePasswordToggle() {
-    const passwordInput = document.getElementById("password");
-    const passwordToggle = document.querySelector(".password-toggle");
-
-    if (!passwordInput || !passwordToggle) return;
+    passwordToggle.dataset.toggleInitialized = "true";
 
     const togglePasswordVisibility = () => {
         const isPassword = passwordInput.type === "password";
         passwordInput.type = isPassword ? "text" : "password";
-        passwordToggle.classList.toggle("bx-eye", isPassword);
-        passwordToggle.classList.toggle("bx-eye-slash", !isPassword);
+
+        if (passwordToggle.classList.contains("fa-eye") || passwordToggle.classList.contains("fa-eye-slash")) {
+            passwordToggle.classList.toggle("fa-eye", isPassword);
+            passwordToggle.classList.toggle("fa-eye-slash", !isPassword);
+        } else {
+            passwordToggle.classList.toggle("bx-eye", isPassword);
+            passwordToggle.classList.toggle("bx-eye-slash", !isPassword);
+        }
     };
 
     passwordToggle.addEventListener("click", togglePasswordVisibility);
@@ -51,4 +61,6 @@ function initializePasswordToggle() {
     });
 }
 
-initializePasswordToggle();
+if (document.getElementById("password") && document.querySelector(".password-toggle")) {
+    initializePasswordToggle("password", ".password-toggle");
+}
