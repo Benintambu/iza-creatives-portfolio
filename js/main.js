@@ -29,6 +29,13 @@ requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger);
 
+function updateCopyrightYear() {
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.copyright-year').forEach((element) => {
+        element.textContent = year;
+    });
+}
+
 async function initializeSite() {
     initializeHeroThumbnails();
     initializeHeroSlider();
@@ -40,6 +47,7 @@ async function initializeSite() {
     initializeIntro();
     initializePageTransition();
     startSliderAnimation();
+    updateCopyrightYear();
 }
 
 if (document.readyState === 'loading') {
