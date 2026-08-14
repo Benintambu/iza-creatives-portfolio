@@ -42,6 +42,15 @@
     margin-bottom: 48px;
 }
 
+/* Hide native title until JS wraps words and enables animation */
+.hero-text h1 {
+    visibility: hidden;
+}
+
+.hero-text.ready h1 {
+    visibility: visible;
+}
+
 .hero-text h1 span {
     font-weight: normal;
     font-family: var(--secondary-font);
@@ -49,6 +58,58 @@
 
 .hero-text p {
     color: var(--grey-2);
+}
+
+/* Animated word reveal using clip-path and translateY */
+.hero-text .word {
+    display: inline-block;
+    transform: translateY(.65em);
+    clip-path: inset(100% 0 0 0);
+    -webkit-clip-path: inset(100% 0 0 0);
+    transition: transform .62s cubic-bezier(.2, .9, .3, 1), clip-path .62s cubic-bezier(.2, .9, .3, 1);
+    -webkit-transition: -webkit-clip-path .62s cubic-bezier(.2, .9, .3, 1), transform .62s cubic-bezier(.2, .9, .3, 1);
+    will-change: transform, clip-path;
+}
+
+.hero-text.animate .word {
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+}
+
+.hero-text .word.space {
+    display: inline;
+    /* keep normal spacing for whitespace fragments */
+}
+
+/* Block reveal for paragraph (instant reveal, not per-word) */
+.hero-text .word-block {
+    display: inline-block;
+    transform: translateY(.65em);
+    clip-path: inset(100% 0 0 0);
+    -webkit-clip-path: inset(100% 0 0 0);
+    transition: transform .62s cubic-bezier(.2, .9, .3, 1), clip-path .62s cubic-bezier(.2, .9, .3, 1);
+    will-change: transform, clip-path;
+}
+
+.hero-text.animate .word-block {
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+}
+
+/* Presentation paragraph: per-word reveal on scroll */
+.presentation .word {
+    display: inline-block;
+    opacity: 0.3;
+    transform: translateY(.35em);
+    will-change: opacity, transform;
+}
+
+.presentation .word.space {
+    display: inline;
+    /* keep normal spacing for whitespace fragments */
+    opacity: 0.3;
 }
 
 .hero-overlay {
