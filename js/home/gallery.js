@@ -43,7 +43,12 @@ function renderGalleryGrid(items) {
         toolbar.innerHTML = '';
     }
 
-    galleryGrid.innerHTML = items.map((item) => `
+    // On mobile, afficher les images les plus récentes en premier
+    const displayItems = window.matchMedia && window.matchMedia('(max-width: 800px)').matches
+        ? items.slice().reverse()
+        : items;
+
+    galleryGrid.innerHTML = displayItems.map((item) => `
         <div class="gallery-item">
             <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
@@ -130,7 +135,12 @@ function renderFolderItems(folder) {
         });
     }
 
-    galleryGrid.innerHTML = folder.items.map((item) => `
+    // For folder view also prefer newest-first on mobile
+    const folderDisplayItems = window.matchMedia && window.matchMedia('(max-width: 800px)').matches
+        ? folder.items.slice().reverse()
+        : folder.items;
+
+    galleryGrid.innerHTML = folderDisplayItems.map((item) => `
         <div class="gallery-item">
             <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
