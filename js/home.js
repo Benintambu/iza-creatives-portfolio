@@ -115,7 +115,20 @@ function revealHeroWords() {
         });
 
         // trigger animation
-        setTimeout(() => container.classList.add('animate'), 80);
+        setTimeout(() => {
+            container.classList.add('animate');
+
+            // calculate when to reveal the paragraph: last word delay + transition duration
+            const wordCount = words.length || 0;
+            const stagger = 0.06; // seconds per word
+            const transitionDuration = 0.62; // matches CSS transition
+            const extraDelay = 0.12; // small gap before paragraph
+            const totalSeconds = Math.max(0, (wordCount - 1) * stagger) + transitionDuration + extraDelay;
+
+            setTimeout(() => {
+                container.classList.add('paragraph-visible');
+            }, totalSeconds * 1000);
+        }, 80);
     });
 }
 
