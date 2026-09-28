@@ -1,3 +1,5 @@
+import { cloudinaryImageUrl } from '../cloudinary-images.js';
+
 const config = {
     SCROLL_SPEED: 1.75,
     LERP_FACTOR: 0.05,
@@ -5,14 +7,14 @@ const config = {
 };
 
 const sliderData = [
-    { title: "Image 1", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883286/1_p0dzpe.webp', url: './about.html' },
-    { title: "Image 2", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883283/2_jiadqp.webp', url: './about.html' },
-    { title: "Image 3", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883290/3_ogvemc.webp', url: './about.html' },
-    { title: "Image 4", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883284/4_gfxz9u.webp', url: './about.html' },
-    { title: "Image 5", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883287/5_puvgqm.webp', url: './about.html' },
-    { title: "Image 6", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883286/6_czwmyw.webp', url: './about.html' },
-    { title: "Image 7", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883288/7_n5goe0.webp', url: './about.html' },
-    { title: "Image 8", img: 'https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783883289/8_f2b2qy.webp', url: './about.html' },
+    { title: "Image 1", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883286/1_p0dzpe.webp', 700), url: './about.html' },
+    { title: "Image 2", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883283/2_jiadqp.webp', 700), url: './about.html' },
+    { title: "Image 3", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883290/3_ogvemc.webp', 700), url: './about.html' },
+    { title: "Image 4", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883284/4_gfxz9u.webp', 700), url: './about.html' },
+    { title: "Image 5", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883287/5_puvgqm.webp', 700), url: './about.html' },
+    { title: "Image 6", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883286/6_czwmyw.webp', 700), url: './about.html' },
+    { title: "Image 7", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883288/7_n5goe0.webp', 700), url: './about.html' },
+    { title: "Image 8", img: cloudinaryImageUrl('https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883289/8_f2b2qy.webp', 700), url: './about.html' },
 ];
 
 const totalSlideCount = sliderData.length;
@@ -58,6 +60,8 @@ function createSlideElement(index) {
     const dataIndex = index % totalSlideCount;
     img.src = sliderData[dataIndex].img;
     img.alt = sliderData[dataIndex].title;
+    img.loading = 'lazy';
+    img.decoding = 'async';
 
     const overlay = document.createElement('div');
     overlay.className = 'slider-overlay';

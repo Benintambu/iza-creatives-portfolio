@@ -112,11 +112,11 @@ body {
 }
 
 .login-reset-password {
-    background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883289/8_f2b2qy.webp") !important;
+    background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto,w_1600,c_limit/v1783883289/8_f2b2qy.webp") !important;
 }
 
 .login-forgot-password {
-    background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783891829/17_u22ick.webp") !important;
+    background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto,w_1600,c_limit/v1783891829/17_u22ick.webp") !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -129,7 +129,7 @@ body {
         display: block;
         width: 60%;
         min-height: 100vh;
-        background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/v1783883288/9_t8pv1f.webp");
+        background-image: url("https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto,w_1200,c_limit/v1783883288/9_t8pv1f.webp");
         background-size: cover;
         background-position: center;
     }

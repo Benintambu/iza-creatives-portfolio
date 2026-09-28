@@ -36,13 +36,13 @@ function updateCopyrightYear() {
     });
 }
 
-async function initializeSite() {
+function initializeSite() {
     initializeHeroThumbnails();
     initializeHeroSlider();
     initializeSlider();
     initializeMobileMenu();
     initializeNavbarScroll();
-    await initializeGallery();
+    initializeGallery();
     initializeContactForm();
     initializeIntro();
     initializePageTransition();

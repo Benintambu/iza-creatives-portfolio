@@ -1,3 +1,5 @@
+import { cloudinaryImageUrl } from '../cloudinary-images.js';
+
 const heroImages = [
     "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804780/1_nf4qyi.webp",
     "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804780/2_ddupan.webp",
@@ -5,16 +7,20 @@ const heroImages = [
     "https://res.cloudinary.com/dgfskm9bz/image/upload/f_auto,q_auto/v1783804785/4_koxchn.webp"
 ];
 
+function getHeroImageWidth() {
+    return window.matchMedia('(max-width: 768px)').matches ? 1000 : 1920;
+}
+
 export function setHeroBackground(imageUrl, activeThumb) {
     const heroBg = document.querySelector('.hero-bg');
     if (!heroBg) return;
 
-    heroBg.style.backgroundImage = `url("${imageUrl}")`;
+    heroBg.style.backgroundImage = `url("${cloudinaryImageUrl(imageUrl, getHeroImageWidth())}")`;
 
     document.querySelectorAll('.thumb-item, .thumb-mobile-item').forEach((thumb) => {
         const thumbImage = thumb.dataset.image;
         if (thumbImage) {
-            thumb.style.backgroundImage = `url("${thumbImage}")`;
+            thumb.style.backgroundImage = `url("${cloudinaryImageUrl(thumbImage, 320)}")`;
         }
 
         const isDesktopThumb = thumb.classList.contains('thumb-item');
@@ -69,7 +75,7 @@ export function initializeHeroSlider() {
             opacity: 0,
             duration: 0.5,
             onComplete: () => {
-                heroBg.style.backgroundImage = `url("${heroImages[index]}")`;
+                heroBg.style.backgroundImage = `url("${cloudinaryImageUrl(heroImages[index], getHeroImageWidth())}")`;
                 gsap.to(heroBg, {
                     opacity: 1,
                     duration: 0.5

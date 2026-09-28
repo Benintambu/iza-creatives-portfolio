@@ -1,5 +1,6 @@
 
 import { supabase } from "../../js/supabase.js";
+import { cloudinaryImageUrl } from "../../js/cloudinary-images.js";
 
 export async function createPhoto(photo) {
 
@@ -60,8 +61,10 @@ export async function loadPhotos() {
             <div class="photo-card">
 
                 <img
-                    src="${photo.image_url}"
+                    src="${cloudinaryImageUrl(photo.image_url, 640)}"
                     alt="${photo.alt}"
+                    loading="lazy"
+                    decoding="async"
                 >
 
                 <div class="photo-overlay">
@@ -239,7 +242,7 @@ export function openEditModal(photo) {
 
         imageLabel.innerHTML = `
             <img
-                src="${photo.image_url}"
+                src="${cloudinaryImageUrl(photo.image_url, 1200)}"
                 alt="${photo.alt ?? ""}"
                 class="photo-preview"
             >
@@ -288,9 +291,10 @@ export async function loadLastUploaded() {
         container.innerHTML += `
             <div class="last-img img--${index + 1}">
                 <img
-                    src="${photo.image_url}"
+                    src="${cloudinaryImageUrl(photo.image_url, 320)}"
                     alt="${photo.alt}"
                     loading="lazy"
+                    decoding="async"
                 >
             </div>
         `;
@@ -325,8 +329,12 @@ export function renderPhotos(photos) {
             <article class="photo-card">
 
                 <img
-                    src="${photo.image_url}"
+                    src="${cloudinaryImageUrl(photo.image_url, 640)}"
+                    loading="lazy"
+                    decoding="async"
                     alt="${photo.alt || ""}"
+                    loading="lazy"
+                    decoding="async"
                 >
 
                 <div class="photo-overlay">

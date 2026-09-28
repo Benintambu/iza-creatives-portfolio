@@ -1,4 +1,5 @@
 import { supabase } from '../supabase.js';
+import { cloudinaryImageUrl } from '../cloudinary-images.js';
 
 function buildGalleryFolders(galleryData) {
     return Array.from(
@@ -50,7 +51,7 @@ function renderGalleryGrid(items) {
 
     galleryGrid.innerHTML = displayItems.map((item) => `
         <div class="gallery-item">
-            <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async">
+            <img src="${cloudinaryImageUrl(item.src, 1000)}" data-full-src="${cloudinaryImageUrl(item.src, 2000)}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
                 <h3>${item.folder}</h3>
                 <span>${item.year}</span>
@@ -89,7 +90,7 @@ function renderFoldersView(galleryFolders) {
     folderContainer.classList.add('is-active');
     folderContainer.innerHTML = galleryFolders.map((folder) => `
         <button class="gallery-folder-card" type="button" data-folder-id="${folder.id}">
-            <img src="${folder.coverImage}" alt="${folder.name}" loading="eager" decoding="async">
+            <img src="${cloudinaryImageUrl(folder.coverImage, 640)}" alt="${folder.name}" loading="lazy" decoding="async">
             <div class="gallery-folder-info">
                 <h3>${folder.name}</h3>
                 <span>${folder.items.length} image${folder.items.length > 1 ? 's' : ''}</span>
@@ -102,12 +103,12 @@ function renderFoldersView(galleryFolders) {
             const folderId = card.getAttribute('data-folder-id');
             const selectedFolder = galleryFolders.find((folder) => folder.id === folderId);
             if (!selectedFolder) return;
-            renderFolderItems(selectedFolder);
+            renderFolderItems(selectedFolder, galleryFolders);
         });
     });
 }
 
-function renderFolderItems(folder) {
+function renderFolderItems(folder, galleryFolders) {
     const galleryGrid = document.querySelector('.gallery-grid');
     const toolbar = document.querySelector('.gallery-view-toolbar');
     const gallerySection = document.querySelector('.gallery');
@@ -131,7 +132,7 @@ function renderFolderItems(folder) {
     const backButton = toolbar.querySelector('.gallery-back');
     if (backButton) {
         backButton.addEventListener('click', () => {
-            renderFoldersView();
+            renderFoldersView(galleryFolders);
         });
     }
 
@@ -142,7 +143,7 @@ function renderFolderItems(folder) {
 
     galleryGrid.innerHTML = folderDisplayItems.map((item) => `
         <div class="gallery-item">
-            <img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async">
+            <img src="${cloudinaryImageUrl(item.src, 1000)}" data-full-src="${cloudinaryImageUrl(item.src, 2000)}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
                 <h3>${item.folder}</h3>
                 <span>${item.year}</span>
@@ -201,42 +202,41 @@ async function fetchGalleryData() {
 }
 
 export function initializeGalleryLightbox() {
-    const images = document.querySelectorAll('.gallery-item');
+    const galleryGrid = document.querySelector('.gallery-grid');
     const lightbox = document.querySelector('.lightbox');
     const lightboxImage = document.querySelector('.lightbox-image');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    if (!images.length || !lightbox || !lightboxImage || !closeBtn) return;
+    if (!galleryGrid || !lightbox || !lightboxImage || !closeBtn || galleryGrid.dataset.lightboxInitialized) return;
 
-    images.forEach(image => {
-        image.addEventListener('click', () => {
-            const thumbnailImage = image.querySelector('img');
-            if (!thumbnailImage) return;
+    galleryGrid.dataset.lightboxInitialized = 'true';
+    galleryGrid.addEventListener('click', (event) => {
+        const image = event.target.closest('.gallery-item');
+        const thumbnailImage = image?.querySelector('img');
+        if (!thumbnailImage) return;
 
-            lightboxImage.src = thumbnailImage.src;
-            lightboxImage.alt = thumbnailImage.alt || '';
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+        lightboxImage.src = thumbnailImage.dataset.fullSrc || thumbnailImage.src;
+        lightboxImage.decoding = 'async';
+        lightboxImage.alt = thumbnailImage.alt || '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
 
-    function closeLightbox() {
+    if (lightbox.dataset.closeInitialized) return;
+
+    const closeLightbox = () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-    }
+    };
 
     closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
     });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeLightbox();
-        }
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeLightbox();
     });
+    lightbox.dataset.closeInitialized = 'true';
 }
 
 export async function initializeGallery() {
