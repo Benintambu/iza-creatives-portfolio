@@ -1,0 +1,26 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Tous les 3 jours à 8h00 UTC
+    - cron: '0 8 */3 * *'
+  workflow_dispatch: # bouton pour lancer manuellement
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          echo "Ping de ${{ secrets.SUPABASE_URL }}"
+          HTTP_CODE=$(curl -sS -o /dev/null -w "%{http_code}" \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+          echo "Réponse HTTP : $HTTP_CODE"
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 500 ]; then
+            echo "✅ Supabase est actif"
+          else
+            echo "❌ Problème détecté"
+            exit 1
+          fi
