@@ -160,9 +160,8 @@ if (presEl) {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: presEl,
-                start: 'top 80%',
+                start: 'top 95%',
                 end: 'bottom 20%',
-                scrub: true
             }
         });
 
