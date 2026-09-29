@@ -632,6 +632,12 @@
 
 }
 
+@media (max-width: 900px) {
+    .hero-text h1 {
+        margin-bottom: 24px;
+    }
+}
+
 .cta {
     position: relative;
     min-height: 100vh;
