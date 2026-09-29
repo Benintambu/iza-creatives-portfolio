@@ -1,6 +1,28 @@
 import { supabase } from '../supabase.js';
 import { cloudinaryImageUrl } from '../cloudinary-images.js';
 
+function renderGallerySkeletons(galleryGrid) {
+    galleryGrid.setAttribute('aria-busy', 'true');
+    galleryGrid.innerHTML = Array.from({ length: 9 }, (_, index) => `
+        <div class="gallery-skeleton gallery-skeleton--${(index % 5) + 1}" aria-hidden="true"></div>
+    `).join('');
+
+    requestAnimationFrame(() => galleryGrid.classList.add('is-ready'));
+}
+
+function watchGalleryImages(container) {
+    container.querySelectorAll('.gallery-item img, .gallery-folder-card img').forEach((image) => {
+        const item = image.closest('.gallery-item, .gallery-folder-card');
+        if (!item) return;
+
+        const finishLoading = () => item.classList.remove('is-image-loading');
+        image.addEventListener('load', finishLoading, { once: true });
+        image.addEventListener('error', finishLoading, { once: true });
+
+        if (image.complete) finishLoading();
+    });
+}
+
 function buildGalleryFolders(galleryData) {
     return Array.from(
         galleryData.reduce((groups, item) => {
@@ -44,13 +66,16 @@ function renderGalleryGrid(items) {
         toolbar.innerHTML = '';
     }
 
+    galleryGrid.setAttribute('aria-busy', 'false');
+
     // On mobile, afficher les images les plus récentes en premier
     const displayItems = window.matchMedia && window.matchMedia('(max-width: 800px)').matches
         ? items.slice().reverse()
         : items;
 
     galleryGrid.innerHTML = displayItems.map((item) => `
-        <div class="gallery-item">
+        <div class="gallery-item is-image-loading">
+            <span class="gallery-image-skeleton" aria-hidden="true"></span>
             <img src="${cloudinaryImageUrl(item.src, 1000)}" data-full-src="${cloudinaryImageUrl(item.src, 2000)}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
                 <h3>${item.folder}</h3>
@@ -58,6 +83,8 @@ function renderGalleryGrid(items) {
             </div>
         </div>
     `).join('');
+
+    watchGalleryImages(galleryGrid);
 
     requestAnimationFrame(() => {
         galleryGrid.classList.add('is-ready');
@@ -89,7 +116,8 @@ function renderFoldersView(galleryFolders) {
 
     folderContainer.classList.add('is-active');
     folderContainer.innerHTML = galleryFolders.map((folder) => `
-        <button class="gallery-folder-card" type="button" data-folder-id="${folder.id}">
+        <button class="gallery-folder-card is-image-loading" type="button" data-folder-id="${folder.id}">
+            <span class="gallery-image-skeleton" aria-hidden="true"></span>
             <img src="${cloudinaryImageUrl(folder.coverImage, 640)}" alt="${folder.name}" loading="lazy" decoding="async">
             <div class="gallery-folder-info">
                 <h3>${folder.name}</h3>
@@ -97,6 +125,8 @@ function renderFoldersView(galleryFolders) {
             </div>
         </button>
     `).join('');
+
+    watchGalleryImages(folderContainer);
 
     folderContainer.querySelectorAll('.gallery-folder-card').forEach((card) => {
         card.addEventListener('click', () => {
@@ -124,6 +154,8 @@ function renderFolderItems(folder, galleryFolders) {
         folderContainer.classList.remove('is-active');
     }
 
+    galleryGrid.setAttribute('aria-busy', 'false');
+
     toolbar.innerHTML = `
         <button type="button" class="gallery-back">← Retour</button>
         <span class="gallery-current-folder">${folder.name}</span>
@@ -142,7 +174,8 @@ function renderFolderItems(folder, galleryFolders) {
         : folder.items;
 
     galleryGrid.innerHTML = folderDisplayItems.map((item) => `
-        <div class="gallery-item">
+        <div class="gallery-item is-image-loading">
+            <span class="gallery-image-skeleton" aria-hidden="true"></span>
             <img src="${cloudinaryImageUrl(item.src, 1000)}" data-full-src="${cloudinaryImageUrl(item.src, 2000)}" alt="${item.alt}" loading="lazy" decoding="async">
             <div class="gallery-overlay">
                 <h3>${item.folder}</h3>
@@ -150,6 +183,8 @@ function renderFolderItems(folder, galleryFolders) {
             </div>
         </div>
     `).join('');
+
+    watchGalleryImages(galleryGrid);
 
     requestAnimationFrame(() => {
         galleryGrid.classList.add('is-ready');
@@ -242,6 +277,8 @@ export function initializeGalleryLightbox() {
 export async function initializeGallery() {
     const galleryGrid = document.querySelector('.gallery-grid');
     if (!galleryGrid) return;
+
+    renderGallerySkeletons(galleryGrid);
 
     const galleryData = await fetchGalleryData();
     const galleryFolders = buildGalleryFolders(galleryData);

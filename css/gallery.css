@@ -66,6 +66,74 @@
     transform: translateY(0);
 }
 
+.gallery-skeleton {
+    position: relative;
+    break-inside: avoid;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--black-mid);
+}
+
+.gallery-skeleton::after,
+.gallery-image-skeleton::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 25%, rgba(245, 245, 245, .08) 50%, transparent 75%);
+    content: '';
+    transform: translateX(-100%);
+    animation: gallery-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.gallery-skeleton--1 {
+    height: 260px;
+}
+
+.gallery-skeleton--2 {
+    height: 340px;
+}
+
+.gallery-skeleton--3 {
+    height: 210px;
+}
+
+.gallery-skeleton--4 {
+    height: 300px;
+}
+
+.gallery-skeleton--5 {
+    height: 240px;
+}
+
+@keyframes gallery-skeleton-shimmer {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.gallery-item.is-image-loading {
+    min-height: 220px;
+    background: var(--black-mid);
+}
+
+.gallery-image-skeleton {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    overflow: hidden;
+    background: var(--black-mid);
+}
+
+.gallery-folder-card .gallery-image-skeleton {
+    inset: 0 0 auto;
+    height: 170px;
+}
+
+.gallery-item.is-image-loading img,
+.gallery-folder-card.is-image-loading img {
+    opacity: 0;
+}
+
 .gallery.is-hidden {
     display: none;
 }
@@ -82,6 +150,7 @@
 }
 
 .gallery-folder-card {
+    position: relative;
     flex: 1 1 min(280px, 100%);
     min-height: 220px;
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -100,6 +169,8 @@
 }
 
 .gallery-folder-card img {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 170px;
     object-fit: cover;
@@ -152,6 +223,7 @@
 
 .gallery-overlay {
     position: absolute;
+    z-index: 3;
     inset: 0;
 
     display: flex;
@@ -183,12 +255,15 @@
 }
 
 .gallery-item img {
+    position: relative;
+    z-index: 2;
     width: 100%;
     display: block;
 
     transition:
         transform .6s ease,
-        filter .6s ease;
+        filter .6s ease,
+        opacity .25s ease;
 }
 
 .gallery-item:hover img {
@@ -259,4 +334,14 @@
     cursor: pointer;
 
     line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gallery-skeleton::after,
+    .gallery-image-skeleton::after {
+        animation: none;
+        transform: none;
+        background: rgba(245, 245, 245, .035);
+    }
 }
